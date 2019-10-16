@@ -1,16 +1,16 @@
 #__BashVsPowershell__
 
-*PowerShell* est plus jeune que bash et destiné à Windows.
-*PowerShell* gére des objets / *Bash* gère des chaines de caractère.
+*PowerShell* est plus jeune que bash et destinÃ© Ã  Windows.
+*PowerShell* gÃ©re des objets / *Bash* gÃ©re des chaines de caractï¿½re.
 *PowerShell* est d'un usage ergonomique: fonctions cliquables.
 
-*Bash* est plus sécurisé que powershell pour tout ce qui est déploiement (ssh).
+*Bash* est plus sÃ©curisÃ© que powershell pour tout ce qui est dÃ©ploiement (ssh).
 Les commandes de *Bash* sont plus simples que dans *PowerShell*.
-*Bash* est historiquement disponible sur les systèmes UNIX; il n'est disponible sur windows que depuis la version 10.
+*Bash* est historiquement disponible sur les systÃ©mes UNIX; il n'est disponible sur windows que depuis la version 10.
 
-C'est un peu la même histoire que Windows vs Linux.
-*Bash* offre un système de fonctionnement plus "basique" qui permet de construire à partir de la base; il offre des éléments unitaires.
-*Powershell* est plus évolué mais du coup plus pré-orienté ce qui laisse moins de liberté.
+C'est un peu la mÃªme histoire que Windows vs Linux.
+*Bash* offre un systÃ©me de fonctionnement plus "basique" qui permet de construire Ã  partir de la base; il offre des Ã©lÃ©ments unitaires.
+*Powershell* est plus Ã©voluÃ© mais du coup plus prÃ©-orientÃ© ce qui laisse moins de libertÃ©.
 
 **CQFD**.
 

@@ -29,10 +29,12 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="./Bash.html">Bash</a>
-                        <a class="dropdown-item" href="./Cmd.html">Cmd</a>
-                        <a class="dropdown-item" href="./PowerShell.html">Power Shell</a>
-                        <a class="dropdown-item" href="./Shell.html">Shell</a>
+                        <a href="PowerShell.html" class="list-group-item list-group-item-action active">
+                            PowerShell
+                        </a>
+                        <a href="Bash.html" class="list-group-item list-group-item-action">Bash</a>
+                        <a href="Shell.html" class="list-group-item list-group-item-action">Shell</a>
+                        <a href="Cmd.html" class="list-group-item list-group-item-action">Cmd</a>
                     </div>
                 </li>
                 <li class="nav-item">
@@ -47,51 +49,67 @@
     </nav>
 
     <div class="container-fluid d-flex flex-row">
-            <div class="col-2"></div>
-                <div id="content" class="col-8"></div>
-            <div class="list-group col-2 align-self-center">
-                <a href="#" class="list-group-item list-group-item-action active">
-                  PowerShell
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">Bash</a>
-                <a href="#" class="list-group-item list-group-item-action">Shell</a>
-                <a href="#" class="list-group-item list-group-item-action">Cmd</a>
+        <div class="col-2 bg-info">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white">
+                  <li class="breadcrumb-item"><a href="Index.html">Accueil</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Cmd</li>
+                </ol>
+              </nav>
+              <div class="progress">
+                <div class="progress-bar bg-secondary" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
               </div>
         </div>
+        <div id="content" class="col-8"></div>
+        <div class="list-group col-2 align-self-center">
+            <a href="PowerShell.html" class="list-group-item list-group-item-action">
+                PowerShell
+            </a>
+            <a href="Bash.html" class="list-group-item list-group-item-action">Bash</a>
+            <a href="Shell.html" class="list-group-item list-group-item-action">Shell</a>
+            <a href="Cmd.html" class="list-group-item list-group-item-action active bg-info">Cmd</a>
+        </div>
+    </div>
     <!-- debut de l'integration des MD -->
- 
-        <!-- declaration des JS bootstrap -->
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-      let content = document.getElementById("content");
-      let renderedPage = 0;
+
+    <!-- declaration des JS bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        let content = document.getElementById("content");
+        let renderedPage = 0;
 
 
-    function fetchPage(page) {
-        if (page === renderedPage) {
-            return Promise.resolve();
+        function fetchPage(page) {
+            if (page === renderedPage) {
+                return Promise.resolve();
+            }
+            return fetch(page)
+                .then(function (res) {
+                    if (!res.ok) {
+                        throw new Error('Error ' + res.status + ': ' + res.statusText);
+                    }
+                    return res.text();
+                })
+                .then(function (text) {
+                    renderedPage = page;
+                    content.innerHTML = marked(text);
+                }).catch(function (e) {
+                    content.innerHTML = '<p>Oops! There was a problem rendering the page.</p>' +
+                        '<p>' + e.message + '</p>';
+                });
         }
-        return fetch(page)
-            .then(function (res) {
-                if (!res.ok) {
-                    throw new Error('Error ' + res.status + ': ' + res.statusText);
-                }
-                return res.text();
-            })
-            .then(function (text) {
-                renderedPage = page;
-                content.innerHTML = marked(text);
-            }).catch(function (e) {
-                content.innerHTML = '<p>Oops! There was a problem rendering the page.</p>'
-                    + '<p>' + e.message + '</p>';
-            });
-    }
 
-    fetchPage("./MD/cmd.md");
-     
-  </script>
-    </body>
-    </html>
+        fetchPage("./MD/cmd.md");
+    </script>
+</body>
+
+</html>

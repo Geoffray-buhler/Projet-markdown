@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    
     <!-- mise en place de la nav bar -->
     <nav class="navbar navbar-expand-lg navbar-navbar-dark bg-dark">
         <a href="Index.html"><img src="./img/iconnul.png" style="height:50px" class="navbar-brand"></a>
@@ -50,7 +51,15 @@
             <h1>About</h1>
             <div class="border-top border border-info"></div>
             <h2>C'est nous, la joyeuse bande</h2>
-            <img class="monimg img-fluid" src="./img/lequipe.png">
+            <div class="container-fluid">
+                <img usemap="#map" class="img-fluid" src="./img/lequipe.png">
+                <map name="map">
+                    <area shape="poly" coords="1397,898,1473,899,1508,1052,1536,1120,1479,1210,1336,1218,1281,1091,1311,989,1397,898" href="https://www.youtube.com/watch?v=Gb1Fh25kNtw">
+                    <area shape="circle" coords="1055,512,90" href="https://journaldesmotards.com/">
+                    <area shape="rect" coords="293,512,543,1110" href="https://www.dailymotion.com/video/xxk6pu">
+                    <area shape="circle" coords="773,454,90" href="https://geoffray-buhler.github.io/CV/">
+                </map></div>
+            
         <!-- <ul class="list-unstyled">
             <li>Marion<a href="#"></a></li>
             <li>Geoffray<a href="#"></a></li>
@@ -74,6 +83,14 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="js/jquery.rwdImageMaps.min.js"></script>
+
+<script>
+        $(document).ready(function(e) {
+              $('img[usemap]').rwdImageMaps();
+        });
+  </script>
 
 </body>
 </html>

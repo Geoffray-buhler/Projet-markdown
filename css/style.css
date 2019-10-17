@@ -1,6 +1,22 @@
+  @keyframes bloup {
+    0%{
+      transform: rotate(0deg);
+    }
+    50%{
+      transform: rotate(5deg);
+    }
+    100%{
+      transform: rotate(0deg);
+    }
+  }
+
+  .card:hover {
+    animation: bloup 1s ease-in-out;
+    animation-fill-mode: forwards;
+  }
+
   img[usemap] {
     height: auto;
     max-width: 100%;
     width: auto;
  }
-  

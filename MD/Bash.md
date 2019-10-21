@@ -21,4 +21,4 @@ __Sources:__
 [Pour les curieux](https://www.varonis.com/blog/the-difference-between-bash-and-powershell/)
 ---
 [Et si t'en veux encore](https://www.educba.com/powershell-vs-bash/)
-![](karine.png)
+![](./img/karine.png)
